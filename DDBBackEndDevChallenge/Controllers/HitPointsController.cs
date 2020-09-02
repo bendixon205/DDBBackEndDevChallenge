@@ -14,12 +14,10 @@ namespace DDBBackEndDevChallenge.Controllers
     [Route("/")]
     public class HitPointsController : ControllerBase
     {
-        private readonly ILogger<HitPointsController> _logger;
         private readonly ICharacterService _characterService;
 
-        public HitPointsController(ILogger<HitPointsController> logger, ICharacterService characterService)
+        public HitPointsController(CharacterService characterService)
         {
-            _logger = logger;
             _characterService = characterService;
         }
 

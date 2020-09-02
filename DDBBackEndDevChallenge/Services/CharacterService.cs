@@ -48,7 +48,7 @@ namespace DDBBackEndDevChallenge.Services
             }
             catch (Exception ex)
             {
-                _logger.LogError(exception: ex, message: "Exception occurred in [CharacterLoader.cs] GetCharacter()");
+                _logger.LogError(exception: ex, message: "Exception occurred in [CharacterService.cs] GetCharacter()");
                 throw;
             }
 
@@ -58,7 +58,8 @@ namespace DDBBackEndDevChallenge.Services
         /// <summary>
         /// Heals the character by the requested amount, respecting MaxHP
         /// </summary>
-        /// <param name="amount">Amount to heal.</param>
+        /// <param name="character">Reference to the targetted character</param>
+        /// <param name="amount">Amount to heal</param>
         public void HealCharacter(ref Character character, int amount)
         {
             character.CurrentHitPoints += amount;
@@ -72,7 +73,8 @@ namespace DDBBackEndDevChallenge.Services
         /// <summary>
         /// Adds Temporary Hit Points to the character of the requested amount, replacing lower values
         /// </summary>
-        /// <param name="amount"></param>
+        /// <param name="character">Reference to the targetted character</param>
+        /// <param name="amount">Amount of Temp HP to attempt to add</param>
         public void AddTempHP(ref Character character, int amount)
         {
             if (character.CurrentTemporaryHitPoints > amount)
@@ -83,6 +85,12 @@ namespace DDBBackEndDevChallenge.Services
             character.CurrentTemporaryHitPoints = amount;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="character">Reference to the targetted character</param>
+        /// <param name="amount">Amount of damage to deal</param>
+        /// <param name="damageType">Type of damage dealt</param>
         public void DealDamage(ref Character character, int amount, string damageType)
         {
             int remainingDamage = amount;
