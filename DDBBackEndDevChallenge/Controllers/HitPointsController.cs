@@ -6,7 +6,6 @@ using DDBBackEndDevChallenge.Models.Character;
 using DDBBackEndDevChallenge.Models.Requests;
 using DDBBackEndDevChallenge.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace DDBBackEndDevChallenge.Controllers
 {
